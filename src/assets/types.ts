@@ -29,3 +29,11 @@ export class Person {
         this.ability = ability;
     }
 }
+
+export interface LocalConfig {
+    personStr: string
+}
+
+export interface StoreState{
+    localConfig: LocalConfig
+}

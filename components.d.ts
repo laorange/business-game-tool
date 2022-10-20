@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CopyrightDiv: typeof import('./src/components/CopyrightDiv.vue')['default']
+    Initiator: typeof import('./src/components/Initiator.vue')['default']
     InputArea: typeof import('./src/components/InputArea.vue')['default']
     NDivider: typeof import('naive-ui')['NDivider']
     NFormItem: typeof import('naive-ui')['NFormItem']
@@ -18,6 +19,8 @@ declare module '@vue/runtime-core' {
     NSpace: typeof import('naive-ui')['NSpace']
     RequirementBlock: typeof import('./src/components/RequirementBlock.vue')['default']
     RequirementParser: typeof import('./src/components/RequirementParser.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     StuffParser: typeof import('./src/components/StuffParser.vue')['default']
   }
 }

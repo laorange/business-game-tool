@@ -1,8 +1,10 @@
 import {createApp} from "vue";
 import App from "./App.vue";
+import {createPinia} from "pinia";
+import Vue3Storage from "vue3-storage";
+
 
 createApp(App)
-    // ...
-    // 此处用来"加载插件"，后面会用到
-    // ...
+    .use(createPinia())
+    .use(Vue3Storage, {namespace: "laorange_"})
     .mount("#app");
