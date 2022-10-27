@@ -2,7 +2,7 @@
 import packageJson from "../../package.json";
 import {ref} from "vue";
 
-withDefaults(defineProps<{ projectUrl?: string, license?: string; addition?: string }>(), {license: "AGPL-3.0 License"});
+withDefaults(defineProps<{ projectUrl: string, license?: string; addition?: string }>(), {license: "AGPL-3.0 License"});
 
 const showQR = ref(false);
 
