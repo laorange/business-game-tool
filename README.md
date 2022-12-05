@@ -1,5 +1,9 @@
 # 人力资源管理智能仿真与竞赛-计算工具
 
+在线使用：[business-game-tool](https://laorange.github.io/business-game-tool/)
+
+---
+
 目前实现功能：
 
 - [x] 统计各岗能力
