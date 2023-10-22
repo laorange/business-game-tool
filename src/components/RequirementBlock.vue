@@ -14,7 +14,8 @@ const abilityDict = {
   D: PERSON_ABILITY["D"][props.dept][props.subject] as number,
 };
 
-const requireNumber = ref<number>(0);
+const totalNumber = ref<number>(0);
+const requireNumber = computed<number>(() => totalNumber.value - props.initNumber);
 
 function getPersonNumOfLevel(level: Level): number {
   return props.existingPersons.filter(p => p.level === level).length;
@@ -44,9 +45,9 @@ const requirement = computed<string>(() => {
 
 <template>
   <n-space :vertical="true" justify="center" align="center">
-    <n-input-number v-model:value="requireNumber" :show-button="false" placeholder="新增数量" :default-value="0">
+    <n-input-number v-model:value="totalNumber" :show-button="false" placeholder="需求数量" :default-value="0">
       <template #prefix>
-        {{ initNumber }} + {{ requireNumber - initNumber}} =
+        {{ initNumber }} + {{ requireNumber }} =
       </template>
     </n-input-number>
     <div v-if="existingPersonNumDescription">
