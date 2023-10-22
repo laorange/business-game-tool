@@ -46,10 +46,7 @@ const requirement = computed<string>(() => {
   <n-space :vertical="true" justify="center" align="center">
     <n-input-number v-model:value="requireNumber" :show-button="false" placeholder="新增数量" :default-value="0">
       <template #prefix>
-        {{ initNumber }} +
-      </template>
-      <template #suffix>
-        = {{ initNumber + requireNumber }}
+        {{ initNumber }} + {{ requireNumber - initNumber}} =
       </template>
     </n-input-number>
     <div v-if="existingPersonNumDescription">
