@@ -12,6 +12,10 @@ export interface AbilityDict {
 
 export type AbilityCode = "YF" | "SC" | "XS"
 
+export function get() {
+
+}
+
 export interface DepartmentInfo {
     [key: Department | string]: AbilityDict;
 }
