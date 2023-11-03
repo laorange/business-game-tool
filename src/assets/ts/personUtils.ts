@@ -4,6 +4,10 @@ export type Production = "P1" | "P2" | "P3" | "P4"
 export type Direction = "研发" | "生产" | "销售"
 export type Level = "A" | "B" | "C" | "D"
 
+export const directions: Direction[] = ["研发", "生产", "销售"];
+export const productions: Production[] = ["P1", "P2", "P3", "P4"];
+export const levels: Level[] = ["A", "B", "C", "D"];
+
 export class Person {
   public production: Production;
   public direction: Direction;

@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import {Direction, Level, Production} from "../assets/ts/personUtils.ts";
-
-const directions: Direction[] = ["研发", "生产", "销售"];
-const productions: Production[] = ["P1", "P2", "P3", "P4"];
-const level: Level[] = ["A", "B", "C", "D"];
+import {directions, productions} from "../assets/ts/personUtils.ts";
+import RequirementBlock from "./RequirementBlock.vue";
 </script>
 
 <template>
@@ -16,7 +13,7 @@ const level: Level[] = ["A", "B", "C", "D"];
     <div class="board-row" v-for="p of productions" :key="p">
       <div class="pre-col">{{ p }}</div>
       <div class="main-col" v-for="d of directions" :key="d">
-        {{ p }}-{{ d }}-{{ level }}
+        <RequirementBlock :direction="d" :production="p"/>
       </div>
     </div>
   </div>
@@ -32,7 +29,7 @@ const level: Level[] = ["A", "B", "C", "D"];
 }
 
 .pre-col, .main-col {
-  @apply border border-gray-400 border-solid h-full flex justify-center items-center;
+  @apply border border-gray-400 border-solid flex justify-center items-center;
 }
 
 .pre-col {
@@ -40,6 +37,6 @@ const level: Level[] = ["A", "B", "C", "D"];
 }
 
 .main-col {
-  @apply flex-1 flex-col;
+  @apply flex-1 flex-col ;
 }
 </style>
