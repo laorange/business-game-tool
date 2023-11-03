@@ -1,60 +1,37 @@
-# 一个 Vite + Vue 3 + TS 的模板
+# 人力资源管理智能仿真与竞赛-计算工具
 
-## 模板内容
+在线使用：[business-game-tool](https://laorange.github.io/business-game-tool/)
 
-- CSS框架：[TailwindCSS](https://tailwindcss.com/)
-- 组件库：[NaiveUI](https://www.naiveui.com/zh-CN/os-theme)
-- 状态管理库：[pinia](https://pinia.vuejs.org/)
-- 官方路由库：[vue-router](https://router.vuejs.org/zh/)
-- 自动引入组件的插件：`unplugin-vue-components` 与 `unplugin-auto-import`
-- 使编译后的文件为单个html的插件：[`vite-plugin-singlefile`](https://github.com/richardtallent/vite-plugin-singlefile)
+---
 
-## 使用方法
+目前实现功能：
 
-方式一：点击 [Use this template](https://github.com/laorange/vue3-ts-naiveui-tailwindcss-template/generate) 按钮，直接使用这个模板；
+- [x] 统计各岗能力
+- [x] 辅助计算拟新增能力对应的新人员配置
 
-方式二：使用 `git clone` 命名，命令如下：
+---
 
-```
-git clone https://github.com/laorange/vue3-ts-naiveui-tailwindcss-template.git
-```
+使用方法：
 
-## 启动项目
+1. 在系统中复制员工信息
 
-> 笔者使用的包管理工具为`pnpm`，如果没有，请使用 `npm install --global pnpm` 安装，或自行改用 `npm`。
+![intro1](./intro.gif)
 
-### (1) 安装依赖
+2. 在本工具内的输入框中粘贴内容。
+
+---
+
+员工信息示例：
 
 ```
-pnpm install
+Y53096 研发人员 C P2 3 6 已培训 从 第5年第3期 到 第6年第4期
+Y53095 研发人员 C P2 3 6 已培训 从 第5年第3期 到 第6年第4期
+Y53091 研发人员 C P2 3 6 已培训 从 第5年第3期 到 第6年第4期
+Y53089 研发人员 B P2 6 15 已培训 从 第5年第3期 到 第6年第4期
+X23120 销售人员 B P1 6 36 已培训 从 第2年第3期 到 第6年第4期
+X13023 销售人员 D P1 1 6 已培训 从 第1年第3期 到 第6年第4期
+S53135 生产人员 D P1 1 1 已培训 从 第5年第3期 到 第6年第4期
+S53130 生产人员 D P1 1 1 已培训 从 第5年第3期 到 第6年第4期
+S53123 生产人员 A P3 10 6 已培训 从 第5年第3期 到 第6年第4期
 ```
 
-### (2) 升级依赖（可选）
-
-```
-pnpm up --latest
-```
-
-### (3) 格式化代码
-
-```
-pnpm run format
-```
-
-### (4) 本地调试
-
-```
-pnpm run dev
-```
-
-### (5) 打包编译
-
-```
-pnpm run build
-```
-
-或者打包为单个html：
-
-```
-pnpm run build-single-file
-```
