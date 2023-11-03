@@ -9,7 +9,6 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CopyrightDiv: typeof import('./src/components/CopyrightDiv.vue')['default']
     Initiator: typeof import('./src/components/Initiator.vue')['default']
-    InputArea: typeof import('./src/components/UserInputArea.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NDivider: typeof import('naive-ui')['NDivider']
     NFormItem: typeof import('naive-ui')['NFormItem']

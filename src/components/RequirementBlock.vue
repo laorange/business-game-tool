@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import PERSON_ABILITY from "../assets/PERSON_ABILITY.json";
-import {computed, ref} from "vue";
+import {computed, ref, watch} from "vue";
 import {AbilityCode, Department, Level, Person} from "../assets/types";
 
-const props = withDefaults(defineProps<{ initNumber: number, existingPersons: Person[], subject: AbilityCode, dept: Department }>(), {initNumber: 0});
+const props = withDefaults(defineProps<{
+  initNumber: number,
+  existingPersons: Person[],
+  subject: AbilityCode,
+  dept: Department
+}>(), {initNumber: 0});
 
 const levels: Level[] = ["A", "B", "C", "D"];
 
@@ -14,7 +19,15 @@ const abilityDict = {
   D: PERSON_ABILITY["D"][props.dept][props.subject] as number,
 };
 
-const requireNumber = ref<number>(0);
+const totalNumber = ref<number>(0);
+watch(() => props.initNumber, (newInitValue: number) => totalNumber.value = newInitValue, {immediate: true});
+
+const requireNumber = computed<number>(() => totalNumber.value - props.initNumber);
+const actionName = computed<string>(() => requireNumber.value >= 0 ? "招聘" : "裁员")
+const prefixText = computed<string>(() => {
+  const sign = requireNumber.value >= 0 ? `+` : `-`;
+  return `${props.initNumber} ${sign} ${Math.abs(requireNumber.value)} = `;
+})
 
 function getPersonNumOfLevel(level: Level): number {
   return props.existingPersons.filter(p => p.level === level).length;
@@ -37,19 +50,16 @@ const requirement = computed<string>(() => {
 
     requirementList.push(num);
     return newRemains;
-  }, requireNumber.value);
+  }, Math.abs(requireNumber.value));
   return requirementList.map((r, i) => r > 0 ? `${levels[i]}×${r}` : "").filter(_ => !!_).join(", ");
 });
 </script>
 
 <template>
   <n-space :vertical="true" justify="center" align="center">
-    <n-input-number v-model:value="requireNumber" :show-button="false" placeholder="新增数量" :default-value="0">
+    <n-input-number v-model:value="totalNumber" :show-button="false" placeholder="需求数量" :default-value="0">
       <template #prefix>
-        {{ initNumber }} +
-      </template>
-      <template #suffix>
-        = {{ initNumber + requireNumber }}
+        {{ prefixText }}
       </template>
     </n-input-number>
     <div v-if="existingPersonNumDescription">
@@ -58,7 +68,7 @@ const requirement = computed<string>(() => {
     <div>
       <span>能力：{{ abilityDescription }}</span>
     </div>
-    <div v-if="!!requireNumber">需求: {{ requirement }}</div>
+    <div v-if="!!requireNumber">{{ actionName }}：{{ requirement }}</div>
   </n-space>
 </template>
 
