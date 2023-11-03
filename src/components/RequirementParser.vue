@@ -12,11 +12,11 @@ const abilityNames = [`研发能力`, `生产能力`, `销售能力`] as (keyof 
 function getAbilityCode(abilityName: keyof AbilityDict): AbilityCode {
   switch (abilityName) {
     case "研发能力":
-      return "YF";
+      return "研发";
     case "生产能力":
-      return "SC";
+      return "生产";
     case "销售能力":
-      return "XS";
+      return "销售";
   }
 }
 

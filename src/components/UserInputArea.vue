@@ -1,19 +1,13 @@
 <script setup lang="ts">
-import {computed} from "vue";
+import {useStore} from "../pinia/useStore";
 
-const props = defineProps<{ value: string }>();
-const emits = defineEmits(["update:value"]);
-
-const valueLocal = computed<string>({
-  get: () => props.value,
-  set: (newValue) => emits("update:value", newValue),
-});
+const store = useStore();
 </script>
 
 <template>
   <n-form-item label="输入员工信息">
     <n-input
-        v-model:value="valueLocal"
+        v-model:value="store.localConfig.personStr"
         :clearable="true"
         type="textarea"
         placeholder="输入员工信息，每行一个员工"
