@@ -10,7 +10,7 @@ export interface AbilityDict {
     "销售能力": number;
 }
 
-export type AbilityCode = "YF" | "SC" | "XS"
+export type AbilityCode = "研发" | "生产" | "销售"
 
 export function get() {
 
