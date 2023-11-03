@@ -17,7 +17,7 @@ S53130 生产人员 D P1 1 1 已培训 从 第5年第3期 到 第6年第4期
 S53123 生产人员 A P3 10 6 已培训 从 第5年第3期 到 第6年第4期`;
 
 const userInputStr = ref(demoUserInputStr);
-watch(() => userInputStr.value, () => store.persons = Person.parseStr(userInputStr.value));
+watch(() => userInputStr.value, () => store.persons = Person.parseStr(userInputStr.value), {immediate: true});
 </script>
 
 <template>
